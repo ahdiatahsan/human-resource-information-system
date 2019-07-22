@@ -18,8 +18,8 @@ class CreateKaryawanTable extends Migration
             $table->string('nama');
             $table->string('nip', 25)->unique();
             $table->text('alamat');
-            $table->integer('golongan_id')->unsigned();
-            $table->integer('divisi_id')->unsigned();
+            $table->integer('golongan_id')->unsigned()->nullable();;
+            $table->integer('divisi_id')->unsigned()->nullable();;
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 
@@ -31,12 +31,12 @@ class CreateKaryawanTable extends Migration
             $table->foreign('golongan_id')
                   ->references('id')
                   ->on('golongan')
-                  ->onDelete('cascade');
+                  ->onDelete('set null');
 
             $table->foreign('divisi_id')
                   ->references('id')
                   ->on('divisi')
-                  ->onDelete('cascade');
+                  ->onDelete('set null');
         });
     }
 

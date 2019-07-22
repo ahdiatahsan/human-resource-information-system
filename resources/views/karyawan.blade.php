@@ -36,8 +36,20 @@
             <td>{{ $karyawan->nama }}</td>
             <td>{{ $karyawan->nip }}</td>
             <td>{{ $karyawan->alamat }}</td>
-            <td>{{ $karyawan->get_dataGolongan->nama_golongan }}</td>
-            <td>{{ $karyawan->get_dataDivisi->nama_divisi }}</td>
+            <td>
+              @if (is_null($karyawan->golongan_id))
+                <b> ! Kosong ! </b>
+              @else
+                {{ $karyawan->get_dataGolongan->nama_golongan }}
+              @endif
+            </td>
+            <td>
+              @if (is_null($karyawan->divisi_id))
+                <b> ! Kosong ! </b>
+              @else
+                {{ $karyawan->get_dataDivisi->nama_divisi }}
+              @endif
+            </td>
             <td>{{ $karyawan->get_dataUser->email }}</td>
             <td style="text-align: center; width: 10rem;">
                 <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#DeleteModal-{{ $karyawan->get_dataUser->id }}">
