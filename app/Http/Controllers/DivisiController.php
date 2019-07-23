@@ -30,7 +30,7 @@ class DivisiController extends Controller
         $divisi->nama_divisi = $request->nama_divisi;
 
         $divisi->save();
-        return redirect('divisi');
+        return redirect('divisi')->with('success', 'Data divisi berhasil ditambahkan ke database');
     }
 
     public function EditData($id)
@@ -52,12 +52,12 @@ class DivisiController extends Controller
         }
         
         $divisi->save();
-        return redirect('divisi');
+        return redirect('divisi')->with('success', 'Data divisi berhasil disunting');
     }
 
     public function DeleteData($id)
     {
         Divisi::where('id', $id)->delete();
-        return redirect('divisi');
+        return redirect('divisi')->with('danger', 'Data divisi telah dihapus dari database');
     }
 }

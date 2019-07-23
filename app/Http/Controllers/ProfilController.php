@@ -119,6 +119,6 @@ class ProfilController extends Controller
             $karyawan->save();
         }
         
-            return redirect('profil');
+            return redirect('profil')->with('success', 'Profil Anda berhasil disunting');
     }
 }

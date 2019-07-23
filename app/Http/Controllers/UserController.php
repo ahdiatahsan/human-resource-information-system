@@ -34,7 +34,7 @@ class UserController extends Controller
         $user->role     = "admin";
 
         $user->save();
-        return redirect('user');
+        return redirect('user')->with('success', 'User berhasil ditambahkan ke database');
     }
 
     public function DeleteData($id)
@@ -42,7 +42,7 @@ class UserController extends Controller
         $users = Auth::User();
         if($users->role == 'superadmin'){
             User::where('id', $id)->delete();
-            return redirect('user');
+            return redirect('user')->with('danger', 'User telah dihapus dari database');
         }
         
     }

@@ -56,7 +56,7 @@ class KaryawanController extends Controller
             $karyawan->save();            
         }
 
-        return redirect('karyawan');
+        return redirect('karyawan')->with('success', 'Data karyawan berhasil ditambahkan ke database');
     }
 
     public function DeleteData($id)
@@ -65,7 +65,7 @@ class KaryawanController extends Controller
         if ($user->role != 'karyawan') {
             User::where('id', $id)->where('role', 'karyawan')->delete();
         }
-        return redirect('karyawan');
+        return redirect('karyawan')->with('danger', 'Data karyawan telah dihapus dari database');
     }
 
     public function EditData($id)
@@ -85,61 +85,30 @@ class KaryawanController extends Controller
             'divisi'    => 'required',
         ]);
 
-        $user = Auth::user();
         $karyawan = Karyawan::find($id);
         $nip = $request->nip;
 
-        if ($user->role == 'karyawan') {
-            if ($karyawan->user_id === $user->id) {
-                if($karyawan->nip == $nip) {
-                    $karyawan->nama        = $request->nama;
-                    $karyawan->alamat      = $request->alamat;
-                    $karyawan->golongan_id = $request->golongan;
-                    $karyawan->divisi_id   = $request->divisi;
-                }
-                else {
-                    if($nip) {
-                        $this->validate($request,[
-                            'nip' => 'required|unique:karyawan',
-                        ]);
-                        
-                        $karyawan->nama        = $request->nama;
-                        $karyawan->nip         = $request->nip;
-                        $karyawan->alamat      = $request->alamat;
-                        $karyawan->golongan_id = $request->golongan;
-                        $karyawan->divisi_id   = $request->divisi;
-                    } 
-                }
-
-            } else {
-                return redirect('karyawan');
-            }
-
-        } else {
-
-            if($karyawan->nip == $nip) {
+        if($karyawan->nip == $nip) {
+            $karyawan->nama        = $request->nama;
+            $karyawan->alamat      = $request->alamat;
+            $karyawan->golongan_id = $request->golongan;
+            $karyawan->divisi_id   = $request->divisi;
+        }
+        else {
+            if($nip) {
+                $this->validate($request,[
+                    'nip' => 'required|unique:karyawan',
+                ]);
+                    
                 $karyawan->nama        = $request->nama;
+                $karyawan->nip         = $request->nip;
                 $karyawan->alamat      = $request->alamat;
                 $karyawan->golongan_id = $request->golongan;
-                $karyawan->divisi_id   = $request->divisi;
-            }
-            else {
-                if($nip) {
-                    $this->validate($request,[
-                        'nip' => 'required|unique:karyawan',
-                    ]);
-                    
-                    $karyawan->nama        = $request->nama;
-                    $karyawan->nip         = $request->nip;
-                    $karyawan->alamat      = $request->alamat;
-                    $karyawan->golongan_id = $request->golongan;
-                    $karyawan->divisi_id   = $request->divisi;
-                } 
-            }
-
+                 $karyawan->divisi_id   = $request->divisi;
+            } 
         }
         
         $karyawan->save();
-        return redirect('karyawan');
+        return redirect('karyawan')->with('success', 'Data karyawan berhasil disunting');
     }
 }

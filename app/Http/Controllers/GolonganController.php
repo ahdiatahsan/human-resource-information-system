@@ -30,7 +30,7 @@ class GolonganController extends Controller
         $golongan->nama_golongan = $request->nama_golongan;
 
         $golongan->save();
-        return redirect('golongan');
+        return redirect('golongan')->with('success', 'Data golongan berhasil ditambahkan ke database');
     }
 
     public function EditData($id)
@@ -52,12 +52,12 @@ class GolonganController extends Controller
         }
         
         $golongan->save();
-        return redirect('golongan');
+        return redirect('golongan')->with('success', 'Data golongan berhasil disunting');
     }
 
     public function DeleteData($id)
     {
         Golongan::where('id', $id)->delete();
-        return redirect('golongan');
+        return redirect('golongan')->with('danger', 'Data golongan telah dihapus dari database');
     }
 }

@@ -51,7 +51,7 @@ class LemburController extends Controller
         $lembur->status      = "pending";
 
         $lembur->save();
-        return redirect('lembur');
+        return redirect('lembur')->with('success', 'Data lembur berhasil ditambahkan ke database');
     }
 
     public function EditData($id)
@@ -82,7 +82,7 @@ class LemburController extends Controller
                 $lembur->jam_mulai   = $request->jam_mulai;
                 $lembur->jam_selesai = $request->jam_selesai;
             } else {
-                return redirect('lembur');
+                return redirect('lembur')->with('danger', 'Anda tidak memiliki hak untuk menyunting data tersebut');
             }
         } else {
             $lembur->project     = $request->project;
@@ -93,7 +93,7 @@ class LemburController extends Controller
         }
         
         $lembur->save();
-        return redirect('lembur');
+        return redirect('lembur')->with('success', 'Data lembur berhasil disunting');
     }
 
     public function DeleteData($id)
@@ -105,7 +105,7 @@ class LemburController extends Controller
         } else {
             Lembur::where('id', $id)->where('status', 'like', '%pending%')->where('id_karyawan', $karyawan->id)->delete();
         }
-        return redirect('lembur');
+        return redirect('lembur')->with('danger', 'Data lembur telah dihapus dari database');
     }
 
     public function KonfirmasiData($id)
@@ -116,6 +116,6 @@ class LemburController extends Controller
             $data->status = 'diterima';
             $data->save();
         }
-        return redirect('lembur');
+        return redirect('lembur')->with('info', 'Data lembur dikonfirmasi');
     }
 }

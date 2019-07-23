@@ -37,13 +37,13 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">Golongan</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="" disabled value="{{ $profil->golongan }}">
+                        <input type="text" class="form-control" id="" disabled value="{{ $profil->get_dataGolongan->nama_golongan }}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">Divisi</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="" disabled value="{{ $profil->divisi }}">
+                        <input type="text" class="form-control" id="" disabled value="{{ $profil->get_dataDivisi->nama_divisi }}">
                     </div>
                 </div>
                 @endforeach

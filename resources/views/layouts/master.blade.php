@@ -213,9 +213,9 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+            @include('layouts.partials._alert')
 
             @yield('content')
-
         </div>
         <!-- /.container-fluid -->
 
