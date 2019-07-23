@@ -15,7 +15,7 @@ class ProfilController extends Controller
         // mengambil data karyawan
         $profil = karyawan::where('user_id', $user->id)->get();
         // mengirim data karyawan ke view karyawan
-        return view('profil', compact('profil', 'user'));
+        return view('profil.profil', compact('profil', 'user'));
     }
 
     public function EditData()
@@ -24,7 +24,7 @@ class ProfilController extends Controller
         // mengambil data karyawan dan mengirim ke view edit profil
         $profil = karyawan::where('user_id', $user->id)->get();
         if ($profil) {
-            return view('profil_edit', compact('profil', 'user'));
+            return view('profil.profil_edit', compact('profil', 'user'));
         }
         else {
             // kembali ke home jika false

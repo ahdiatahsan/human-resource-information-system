@@ -31,7 +31,7 @@ Route::group(['middleware' => 'App\Http\Middleware\SuperAdminMiddleware'], funct
     Route::get('/user/delete/{id}', 'UserController@DeleteData')->name('user_delete');
 });
 
-//Admin Only
+//Super Admin and Admin Only
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     Route::get('/karyawan', 'KaryawanController@ViewData')->name('karyawan');

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Reset Password
+@endsection
+
 @section('content')
 
 <div class="container m-top">

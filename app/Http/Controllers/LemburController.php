@@ -19,13 +19,13 @@ class LemburController extends Controller
         } else {
             $lemburs = Lembur::all();
         }
-        return view('lembur', compact('lemburs'));
+        return view('lembur.lembur', compact('lemburs'));
         
     }
 
     public function InputData()
     {
-        return view('lembur_input');
+        return view('lembur.lembur_input');
     }
 
     public function SaveData(Request $request)
@@ -57,7 +57,7 @@ class LemburController extends Controller
     public function EditData($id)
     {
         $lembur = Lembur::find($id);
-        return view('lembur_edit', compact('lembur'));
+        return view('lembur.lembur_edit', compact('lembur'));
     }
 
     public function UpdateData(Request $request, $id)

@@ -18,14 +18,14 @@ class KaryawanController extends Controller
         $golonganKaryawan = karyawan::with('get_dataGolongan')->get();
         $divisiemailKaryawan = karyawan::with('get_dataDivisi')->get();
         // mengirim data karyawan ke view karyawan
-        return view('karyawan', compact('karyawans'));
+        return view('karyawan.karyawan', compact('karyawans'));
     }
 
     public function InputData()
     {
         $golongans = Golongan::all();
         $divisis = Divisi::all();
-        return view('karyawan_input', compact('golongans', 'divisis'));
+        return view('karyawan.karyawan_input', compact('golongans', 'divisis'));
     }
 
     public function SaveData(Request $request)
@@ -73,7 +73,7 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
         $golongans = Golongan::all();
         $divisis = Divisi::all();
-        return view('karyawan_edit', compact('karyawan', 'golongans', 'divisis'));
+        return view('karyawan.karyawan_edit', compact('karyawan', 'golongans', 'divisis'));
     }
 
     public function UpdateData(Request $request, $id)

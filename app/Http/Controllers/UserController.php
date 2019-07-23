@@ -13,12 +13,12 @@ class UserController extends Controller
         // mengambil data user
         $users = User::all();
         // mengirim data user ke view user
-        return view('user', compact('users'));
+        return view('user.user', compact('users'));
     }
 
     public function InputData()
     {
-        return view('user_input');
+        return view('user.user_input');
     }
 
     public function SaveData(Request $request)

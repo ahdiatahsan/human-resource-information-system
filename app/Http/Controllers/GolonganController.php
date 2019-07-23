@@ -12,12 +12,12 @@ class GolonganController extends Controller
         // mengambil data golongan
         $golongans = Golongan::all();
         // mengirim data golongan ke view golongan
-        return view('golongan', compact('golongans'));
+        return view('golongan.golongan', compact('golongans'));
     }
 
     public function InputData()
     {
-        return view('golongan_input');
+        return view('golongan.golongan_input');
     }
 
     public function SaveData(Request $request)
@@ -36,7 +36,7 @@ class GolonganController extends Controller
     public function EditData($id)
     {
         $golongan = Golongan::find($id);
-        return view('golongan_edit', compact('golongan'));
+        return view('golongan.golongan_edit', compact('golongan'));
     }
 
     public function UpdateData(Request $request, $id)

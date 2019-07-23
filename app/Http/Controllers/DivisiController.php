@@ -12,12 +12,12 @@ class DivisiController extends Controller
         // mengambil data divisi
         $divisis = Divisi::all();
         // mengirim data divisi ke view divisi
-        return view('divisi', compact('divisis'));
+        return view('divisi.divisi', compact('divisis'));
     }
 
     public function InputData()
     {
-        return view('divisi_input');
+        return view('divisi.divisi_input');
     }
 
     public function SaveData(Request $request)
@@ -36,7 +36,7 @@ class DivisiController extends Controller
     public function EditData($id)
     {
         $divisi = Divisi::find($id);
-        return view('divisi_edit', compact('divisi'));
+        return view('divisi.divisi_edit', compact('divisi'));
     }
 
     public function UpdateData(Request $request, $id)
