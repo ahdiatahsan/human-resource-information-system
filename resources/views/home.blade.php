@@ -88,11 +88,12 @@
         </div>
         <div class="card-body">
           <div class="text-center">
-            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 23rem;" src="img/undraw_posting_photo.svg" alt="Human Resource Image">
+            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 21rem;" src="img/undraw_posting_photo.svg" alt="Human Resource Image">
           </div>
-          <p class="text-center mt-3">Anda tidak perlu lagi meminta data dari cabang-cabang yang jauh, atau dari toko yang berbeda 
-            untuk membuat report konsolidasi. Data karyawan dapat diakses oleh pihak manajemen atau departemen HR 
-            dengan cepat.
+          <p class="text-center mt-3">
+            Human Resource Information System (HRIS) adalah program aplikasi komputer yang mengorganisir tata kelola 
+            dan tata laksana manajemen Sumber Daya Manusia di perusahaan guna mendukung proses pengambilan keputusan 
+            atau biasa disebut Decision Support System dengan menyediakan berbagai informasi yang diperlukan.
           </p>
         </div>
       </div>

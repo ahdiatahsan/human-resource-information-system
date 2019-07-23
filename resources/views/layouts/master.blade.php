@@ -227,7 +227,7 @@
       <footer class="sticky-footer bg-white shadow">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; HRIS 2019</span>
+            <span>Copyright &copy; Human Resource Information System 2019</span>
           </div>
         </div>
       </footer>
@@ -256,7 +256,9 @@
         </div>
         <div class="modal-body">Pilih "Logout" jika ingin mengakhiri sesi.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">
+              <i class="fas fa-times"></i> Cancel
+          </button>
           <a class="btn btn-danger" href="{{ route('logout') }}" 
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();"

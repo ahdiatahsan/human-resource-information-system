@@ -54,7 +54,9 @@
                 <div class="modal-footer">
                   <form method="GET" action="{{ route('divisi_delete', $divisi->id) }}" tabindex="-1">
                     {{ csrf_field() }}
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
                     <button type="submit" class="btn btn-danger">
                       <i class="fas fa-trash"></i> Hapus
                     </button>
