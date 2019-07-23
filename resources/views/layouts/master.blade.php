@@ -140,7 +140,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{ request()->is('user', 'user_input') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHrd" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-user-shield"></i>
+          <i class="fas fa-users"></i>
           <span>Data User</span>
         </a>
         <div id="collapseHrd" class="collapse {{ request()->is('user', 'user_input') ? 'show' : '' }}" aria-labelledby="headingHrd" data-parent="#accordionSidebar">
