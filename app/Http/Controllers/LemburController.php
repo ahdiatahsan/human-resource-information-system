@@ -35,7 +35,7 @@ class LemburController extends Controller
             'modul'       => 'required',
             'tgl_lembur'  => 'required|date|after:yesterday',
             'jam_mulai'   => 'required|date_format:H:i',
-            'jam_selesai' => 'required|date_format:H:i|after:jam_mulai',
+            'jam_selesai' => 'required|date_format:H:i',
         ]);
         
         $user = Auth::user();
@@ -67,7 +67,7 @@ class LemburController extends Controller
             'modul'       => 'required',
             'tgl_lembur'  => 'required|date|after:yesterday',
             'jam_mulai'   => 'required',
-            'jam_selesai' => 'required|after:jam_mulai',
+            'jam_selesai' => 'required',
         ]);
 
         $user = Auth::user();
