@@ -36,7 +36,7 @@
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $JumlahKaryawan }}</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-users fa-2x text-danger-300"></i>
+              <i class="fas fa-address-card fa-2x text-danger-300"></i>
             </div>
           </div>
         </div>

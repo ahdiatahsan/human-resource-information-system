@@ -188,7 +188,7 @@
             <!-- Nav Item - User Information --> 
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->email }} </span>
+                <span class="mr-2 d-lg-inline text-gray-600 small">{{ Auth::user()->email }} </span>
                 <img class="img-profile rounded-circle" 
                 src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-user-profile-blue-icon-by-vexels.png">
               </a>
