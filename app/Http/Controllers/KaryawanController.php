@@ -63,7 +63,7 @@ class KaryawanController extends Controller
         //kirim data user ke email user tadi
         $new_user_email = $request->email;
         $new_user_password = $request->password;
-        Mail::to($new_user_email)->send(new NewAccountEmail($new_user_password));
+        Mail::to($new_user_email)->send(new NewAccountEmail($new_user_email, $new_user_password));
         
         return redirect('karyawan')->with('success', 'Data karyawan berhasil ditambahkan ke database');
     }

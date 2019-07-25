@@ -65,7 +65,7 @@ class LemburController extends Controller
         $this->validate($request,[
             'project'     => 'required',
             'modul'       => 'required',
-            'tgl_lembur'  => 'required|date|after:yesterday',
+            'tgl_lembur'  => 'required|date',
             'jam_mulai'   => 'required',
             'jam_selesai' => 'required',
         ]);
