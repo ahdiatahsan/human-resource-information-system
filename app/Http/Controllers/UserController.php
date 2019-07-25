@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use App\Mail\NewAccountEmail;
+use Illuminate\Support\Facades\Mail;
+
 use App\User;
 
 class UserController extends Controller
@@ -34,6 +38,12 @@ class UserController extends Controller
         $user->role     = "admin";
 
         $user->save();
+
+        //kirim data user ke email user tadi
+        $new_user_email = $request->email;
+        $new_user_password = $request->password;
+        Mail::to($new_user_email)->send(new NewAccountEmail($new_user_email, $new_user_password));
+
         return redirect('user')->with('success', 'User berhasil ditambahkan ke database');
     }
 
@@ -44,6 +54,5 @@ class UserController extends Controller
             User::where('id', $id)->delete();
             return redirect('user')->with('danger', 'User telah dihapus dari database');
         }
-        
     }
 }
