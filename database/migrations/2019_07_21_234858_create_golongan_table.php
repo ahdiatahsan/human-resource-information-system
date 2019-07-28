@@ -18,6 +18,17 @@ class CreateGolonganTable extends Migration
             $table->string('nama_golongan');
             $table->timestamps();
         });
+
+        // Insert default record
+        DB::table('golongan')->insert(
+            [ 
+                [
+                'nama_golongan' => 'Golongan I',
+                'created_at' => now(), 
+                'updated_at' => now()
+                ],
+            ]
+        );
     }
 
     /**
