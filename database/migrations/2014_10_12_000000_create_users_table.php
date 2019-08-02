@@ -21,19 +21,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        // Insert default record
-        DB::table('users')->insert(
-            [ 
-                [
-                'email' => 'superadmin@mail.com', 
-                'password' => bcrypt('123123'), 
-                'role' => 'superadmin', 
-                'created_at' => now(), 
-                'updated_at' => now()
-                ],
-            ]
-        );
     }
 
     /**

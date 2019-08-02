@@ -18,17 +18,6 @@ class CreateDivisiTable extends Migration
             $table->string('nama_divisi');
             $table->timestamps();
         });
-
-        // Insert default record
-        DB::table('divisi')->insert(
-            [ 
-                [
-                'nama_divisi' => 'Back End Developer',
-                'created_at' => now(), 
-                'updated_at' => now()
-                ],
-            ]
-        );
     }
 
     /**
