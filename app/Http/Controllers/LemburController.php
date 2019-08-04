@@ -8,6 +8,10 @@ use App\Karyawan;
 
 class LemburController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function ViewData()
     {
