@@ -60,8 +60,18 @@ class LemburController extends Controller
 
     public function EditData($id)
     {
+        $user = Auth::user();
         $lembur = Lembur::find($id);
-        return view('lembur.lembur_edit', compact('lembur'));
+        $karyawan = Karyawan::where('user_id', $user->id)->first();
+        if ($user->role == 'karyawan') {
+            if ($karyawan->id === $lembur->id_karyawan) {
+                return view('lembur.lembur_edit', compact('lembur'));
+            } else {
+                return redirect('lembur')->with('danger', 'Anda tidak memiliki hak untuk menyunting data tersebut');
+            }
+        } else {
+            return view('lembur.lembur_edit', compact('lembur'));
+        }
     }
 
     public function UpdateData(Request $request, $id)

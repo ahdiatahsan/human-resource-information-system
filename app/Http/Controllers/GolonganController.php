@@ -62,7 +62,7 @@ class GolonganController extends Controller
 
     public function DeleteData($id)
     {
-        Golongan::where('id', $id)->delete();
+        $golongan = Golongan::where('id', $id)->delete();
         return redirect('golongan')->with('danger', 'Data golongan telah dihapus dari database');
     }
 }
